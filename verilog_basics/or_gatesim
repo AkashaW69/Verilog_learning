@@ -1,0 +1,41 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011931C0 .scope module, "tb_or_gate" "tb_or_gate" 2 3;
+ .timescale -9 -12;
+v01193668_0 .var "A", 0 0;
+v011936C0_0 .var "B", 0 0;
+v01193718_0 .net "Y", 0 0, L_0119EFA0; 1 drivers
+S_01193248 .scope module, "uut" "or_gate" 2 11, 3 1, S_011931C0;
+ .timescale 0 0;
+L_0119EFA0 .functor OR 1, v01193668_0, v011936C0_0, C4<0>, C4<0>;
+v01193610_0 .net "A", 0 0, v01193668_0; 1 drivers
+v0119EEF0_0 .net "B", 0 0, v011936C0_0; 1 drivers
+v0119EF48_0 .alias "Y", 0 0, v01193718_0;
+    .scope S_011931C0;
+T_0 ;
+    %vpi_call 2 20 "$monitor", "Time=%0t A=%b B=%b Y=%b", $time, v01193668_0, v011936C0_0, v01193718_0;
+    %set/v v01193668_0, 0, 1;
+    %set/v v011936C0_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v01193668_0, 0, 1;
+    %set/v v011936C0_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v01193668_0, 1, 1;
+    %set/v v011936C0_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v01193668_0, 1, 1;
+    %set/v v011936C0_0, 1, 1;
+    %delay 10000, 0;
+    %vpi_call 2 37 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_or_gate.v";
+    "or_gate.v";
