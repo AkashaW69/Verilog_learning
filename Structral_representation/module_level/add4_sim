@@ -1,0 +1,233 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01177720 .scope module, "tb_add4" "tb_add4" 2 4;
+ .timescale -9 -12;
+v011B3390_0 .net "Cy4", 0 0, L_011B2AE8; 1 drivers
+v011B33E8_0 .var "Cy_in", 0 0;
+RS_01184474 .resolv tri, L_011B3AC8, L_011B3F78, L_011B4188, L_011B4658;
+v011B3440_0 .net8 "S", 3 0, RS_01184474; 4 drivers
+v011B3498_0 .var "x", 3 0;
+v011B35F8_0 .var "y", 3 0;
+S_01177478 .scope module, "uut" "add4" 2 15, 3 2, S_01177720;
+ .timescale 0 0;
+v011B3288_0 .alias "Cy4", 0 0, v011B3390_0;
+v011B2C58_0 .net "Cy_in", 0 0, v011B33E8_0; 1 drivers
+RS_0118445C .resolv tri, L_011B3910, L_011B4550, L_011B45A8, C4<zzz>;
+v011B30D0_0 .net8 "Cy_out", 2 0, RS_0118445C; 3 drivers
+v011B35A0_0 .alias "S", 3 0, v011B3440_0;
+v011B32E0_0 .net "x", 3 0, v011B3498_0; 1 drivers
+v011B3338_0 .net "y", 3 0, v011B35F8_0; 1 drivers
+L_011B3AC8 .part/pv L_011B28B8, 0, 1, 4;
+L_011B3910 .part/pv L_011B2B90, 0, 1, 3;
+L_011B3A70 .part v011B3498_0, 0, 1;
+L_011B3BD0 .part v011B35F8_0, 0, 1;
+L_011B3F78 .part/pv L_011810F8, 1, 1, 4;
+L_011B4550 .part/pv L_01180DE8, 1, 1, 3;
+L_011B46B0 .part v011B3498_0, 1, 1;
+L_011B4130 .part v011B35F8_0, 1, 1;
+L_011B4398 .part RS_0118445C, 0, 1;
+L_011B4188 .part/pv L_011812F0, 2, 1, 4;
+L_011B45A8 .part/pv L_01180F00, 2, 1, 3;
+L_011B4340 .part v011B3498_0, 2, 1;
+L_011B3E70 .part v011B35F8_0, 2, 1;
+L_011B3D68 .part RS_0118445C, 1, 1;
+L_011B4658 .part/pv L_011811A0, 3, 1, 4;
+L_011B3E18 .part v011B3498_0, 3, 1;
+L_011B4708 .part v011B35F8_0, 3, 1;
+L_011B3C60 .part RS_0118445C, 2, 1;
+S_011772E0 .scope module, "b0" "add" 3 11, 4 1, S_01177478;
+ .timescale 0 0;
+v011B2E68_0 .net "a", 0 0, L_011B3A70; 1 drivers
+v011B3078_0 .net "b", 0 0, L_011B3BD0; 1 drivers
+v011B31D8_0 .alias "c_in", 0 0, v011B2C58_0;
+v011B3128_0 .net "carry", 0 0, L_011B2B90; 1 drivers
+v011B3230_0 .net "sum", 0 0, L_011B28B8; 1 drivers
+S_01176F28 .scope module, "s1" "sum" 4 5, 5 1, S_011772E0;
+ .timescale 0 0;
+L_011B28B8 .functor XOR 1, L_011B3A70, L_011B3BD0, v011B33E8_0, C4<0>;
+v011B3700_0 .alias "a", 0 0, v011B2E68_0;
+v011B3548_0 .alias "b", 0 0, v011B3078_0;
+v011B3650_0 .alias "cy_in", 0 0, v011B2C58_0;
+v011B3020_0 .alias "sum", 0 0, v011B3230_0;
+S_01176A60 .scope module, "c1" "carry" 4 6, 6 1, S_011772E0;
+ .timescale 0 0;
+L_011B2928 .functor AND 1, L_011B3A70, L_011B3BD0, C4<1>, C4<1>;
+L_011B2B20 .functor AND 1, L_011B3A70, v011B33E8_0, C4<1>, C4<1>;
+L_011B2AB0 .functor AND 1, L_011B3BD0, v011B33E8_0, C4<1>, C4<1>;
+L_011B2B90 .functor OR 1, L_011B3860, L_011B3B78, L_011B38B8, C4<0>;
+v011B2EC0_0 .net *"_s0", 0 0, L_011B2928; 1 drivers
+v011B2F18_0 .net *"_s11", 0 0, L_011B38B8; 1 drivers
+v011B2FC8_0 .net *"_s2", 0 0, L_011B2B20; 1 drivers
+v011B3180_0 .net *"_s4", 0 0, L_011B2AB0; 1 drivers
+v011B2CB0_0 .net *"_s7", 0 0, L_011B3860; 1 drivers
+v011B2F70_0 .net *"_s9", 0 0, L_011B3B78; 1 drivers
+v011B2E10_0 .alias "a", 0 0, v011B2E68_0;
+v011B34F0_0 .alias "b", 0 0, v011B3078_0;
+v011B2D08_0 .alias "carry", 0 0, v011B3128_0;
+v011B2D60_0 .alias "cy_in", 0 0, v011B2C58_0;
+RS_0118442C .resolv tri, L_011B36A8, L_011B3B20, L_011B3808, C4<zzzz>;
+v011B2DB8_0 .net8 "w", 3 0, RS_0118442C; 3 drivers
+L_011B36A8 .part/pv L_011B2928, 0, 1, 4;
+L_011B3B20 .part/pv L_011B2B20, 1, 1, 4;
+L_011B3808 .part/pv L_011B2AB0, 2, 1, 4;
+L_011B3860 .part RS_0118442C, 0, 1;
+L_011B3B78 .part RS_0118442C, 1, 1;
+L_011B38B8 .part RS_0118442C, 2, 1;
+S_01177148 .scope module, "b1" "add" 3 12, 4 1, S_01177478;
+ .timescale 0 0;
+v01180860_0 .net "a", 0 0, L_011B46B0; 1 drivers
+v01180A70_0 .net "b", 0 0, L_011B4130; 1 drivers
+v01180968_0 .net "c_in", 0 0, L_011B4398; 1 drivers
+v01180910_0 .net "carry", 0 0, L_01180DE8; 1 drivers
+v011809C0_0 .net "sum", 0 0, L_011810F8; 1 drivers
+S_01177830 .scope module, "s1" "sum" 4 5, 5 1, S_01177148;
+ .timescale 0 0;
+L_011810F8 .functor XOR 1, L_011B46B0, L_011B4130, L_011B4398, C4<0>;
+v01180A18_0 .alias "a", 0 0, v01180860_0;
+v01180758_0 .alias "b", 0 0, v01180A70_0;
+v01180AC8_0 .alias "cy_in", 0 0, v01180968_0;
+v011807B0_0 .alias "sum", 0 0, v011809C0_0;
+S_01177368 .scope module, "c1" "carry" 4 6, 6 1, S_01177148;
+ .timescale 0 0;
+L_01180D78 .functor AND 1, L_011B46B0, L_011B4130, C4<1>, C4<1>;
+L_01181168 .functor AND 1, L_011B46B0, L_011B4398, C4<1>, C4<1>;
+L_011811D8 .functor AND 1, L_011B4130, L_011B4398, C4<1>, C4<1>;
+L_01180DE8 .functor OR 1, L_011B3968, L_011B3A18, L_011B43F0, C4<0>;
+v0117FD60_0 .net *"_s0", 0 0, L_01180D78; 1 drivers
+v0117FE10_0 .net *"_s11", 0 0, L_011B43F0; 1 drivers
+v011800D0_0 .net *"_s2", 0 0, L_01181168; 1 drivers
+v01180548_0 .net *"_s4", 0 0, L_011811D8; 1 drivers
+v0117FEC0_0 .net *"_s7", 0 0, L_011B3968; 1 drivers
+v0117FF18_0 .net *"_s9", 0 0, L_011B3A18; 1 drivers
+v01180B78_0 .alias "a", 0 0, v01180860_0;
+v011808B8_0 .alias "b", 0 0, v01180A70_0;
+v01180B20_0 .alias "carry", 0 0, v01180910_0;
+v01180BD0_0 .alias "cy_in", 0 0, v01180968_0;
+RS_0118430C .resolv tri, L_011B39C0, L_011B3758, L_011B37B0, C4<zzzz>;
+v01180808_0 .net8 "w", 3 0, RS_0118430C; 3 drivers
+L_011B39C0 .part/pv L_01180D78, 0, 1, 4;
+L_011B3758 .part/pv L_01181168, 1, 1, 4;
+L_011B37B0 .part/pv L_011811D8, 2, 1, 4;
+L_011B3968 .part RS_0118430C, 0, 1;
+L_011B3A18 .part RS_0118430C, 1, 1;
+L_011B43F0 .part RS_0118430C, 2, 1;
+S_01176E18 .scope module, "b2" "add" 3 13, 4 1, S_01177478;
+ .timescale 0 0;
+v01180338_0 .net "a", 0 0, L_011B4340; 1 drivers
+v011804F0_0 .net "b", 0 0, L_011B3E70; 1 drivers
+v0117FFC8_0 .net "c_in", 0 0, L_011B3D68; 1 drivers
+v011802E0_0 .net "carry", 0 0, L_01180F00; 1 drivers
+v01180498_0 .net "sum", 0 0, L_011812F0; 1 drivers
+S_01176EA0 .scope module, "s1" "sum" 4 5, 5 1, S_01176E18;
+ .timescale 0 0;
+L_011812F0 .functor XOR 1, L_011B4340, L_011B3E70, L_011B3D68, C4<0>;
+v01180230_0 .alias "a", 0 0, v01180338_0;
+v011805A0_0 .alias "b", 0 0, v011804F0_0;
+v01180288_0 .alias "cy_in", 0 0, v0117FFC8_0;
+v0117FE68_0 .alias "sum", 0 0, v01180498_0;
+S_01177258 .scope module, "c1" "carry" 4 6, 6 1, S_01176E18;
+ .timescale 0 0;
+L_01180E20 .functor AND 1, L_011B4340, L_011B3E70, C4<1>, C4<1>;
+L_01180C60 .functor AND 1, L_011B4340, L_011B3D68, C4<1>, C4<1>;
+L_01180C98 .functor AND 1, L_011B3E70, L_011B3D68, C4<1>, C4<1>;
+L_01180F00 .functor OR 1, L_011B3EC8, L_011B4448, L_011B40D8, C4<0>;
+v01180020_0 .net *"_s0", 0 0, L_01180E20; 1 drivers
+v01180440_0 .net *"_s11", 0 0, L_011B40D8; 1 drivers
+v011805F8_0 .net *"_s2", 0 0, L_01180C60; 1 drivers
+v0117FC58_0 .net *"_s4", 0 0, L_01180C98; 1 drivers
+v011801D8_0 .net *"_s7", 0 0, L_011B3EC8; 1 drivers
+v0117FF70_0 .net *"_s9", 0 0, L_011B4448; 1 drivers
+v0117FCB0_0 .alias "a", 0 0, v01180338_0;
+v01180078_0 .alias "b", 0 0, v011804F0_0;
+v0117FD08_0 .alias "carry", 0 0, v011802E0_0;
+v01180180_0 .alias "cy_in", 0 0, v0117FFC8_0;
+RS_011841EC .resolv tri, L_011B4290, L_011B4238, L_011B42E8, C4<zzzz>;
+v01180128_0 .net8 "w", 3 0, RS_011841EC; 3 drivers
+L_011B4290 .part/pv L_01180E20, 0, 1, 4;
+L_011B4238 .part/pv L_01180C60, 1, 1, 4;
+L_011B42E8 .part/pv L_01180C98, 2, 1, 4;
+L_011B3EC8 .part RS_011841EC, 0, 1;
+L_011B4448 .part RS_011841EC, 1, 1;
+L_011B40D8 .part RS_011841EC, 2, 1;
+S_011777A8 .scope module, "b3" "add" 3 14, 4 1, S_01177478;
+ .timescale 0 0;
+v011806A8_0 .net "a", 0 0, L_011B3E18; 1 drivers
+v011803E8_0 .net "b", 0 0, L_011B4708; 1 drivers
+v01180700_0 .net "c_in", 0 0, L_011B3C60; 1 drivers
+v01180650_0 .alias "carry", 0 0, v011B3390_0;
+v0117FDB8_0 .net "sum", 0 0, L_011811A0; 1 drivers
+S_01176D90 .scope module, "s1" "sum" 4 5, 5 1, S_011777A8;
+ .timescale 0 0;
+L_011811A0 .functor XOR 1, L_011B3E18, L_011B4708, L_011B3C60, C4<0>;
+v01174D08_0 .alias "a", 0 0, v011806A8_0;
+v01174D60_0 .alias "b", 0 0, v011803E8_0;
+v01174DB8_0 .alias "cy_in", 0 0, v01180700_0;
+v01180390_0 .alias "sum", 0 0, v0117FDB8_0;
+S_01176D08 .scope module, "c1" "carry" 4 6, 6 1, S_011777A8;
+ .timescale 0 0;
+L_01180D40 .functor AND 1, L_011B3E18, L_011B4708, C4<1>, C4<1>;
+L_01181398 .functor AND 1, L_011B3E18, L_011B3C60, C4<1>, C4<1>;
+L_01181360 .functor AND 1, L_011B4708, L_011B3C60, C4<1>, C4<1>;
+L_011B2AE8 .functor OR 1, L_011B44F8, L_011B4600, L_011B3F20, C4<0>;
+v01174F18_0 .net *"_s0", 0 0, L_01180D40; 1 drivers
+v011750D0_0 .net *"_s11", 0 0, L_011B3F20; 1 drivers
+v01175180_0 .net *"_s2", 0 0, L_01181398; 1 drivers
+v011751D8_0 .net *"_s4", 0 0, L_01181360; 1 drivers
+v01174E10_0 .net *"_s7", 0 0, L_011B44F8; 1 drivers
+v01175230_0 .net *"_s9", 0 0, L_011B4600; 1 drivers
+v011752E0_0 .alias "a", 0 0, v011806A8_0;
+v01174CB0_0 .alias "b", 0 0, v011803E8_0;
+v01174BA8_0 .alias "carry", 0 0, v011B3390_0;
+v01174C58_0 .alias "cy_in", 0 0, v01180700_0;
+RS_011840CC .resolv tri, L_011B3FD0, L_011B3DC0, L_011B44A0, C4<zzzz>;
+v01174EC0_0 .net8 "w", 3 0, RS_011840CC; 3 drivers
+L_011B3FD0 .part/pv L_01180D40, 0, 1, 4;
+L_011B3DC0 .part/pv L_01181398, 1, 1, 4;
+L_011B44A0 .part/pv L_01181360, 2, 1, 4;
+L_011B44F8 .part RS_011840CC, 0, 1;
+L_011B4600 .part RS_011840CC, 1, 1;
+L_011B3F20 .part RS_011840CC, 2, 1;
+    .scope S_01177720;
+T_0 ;
+    %vpi_call 2 25 "$monitor", "Time=%0t x=%b y=%b Cin=%b Sum=%b Cout=%b", $time, v011B3498_0, v011B35F8_0, v011B33E8_0, v011B3440_0, v011B3390_0;
+    %set/v v011B3498_0, 0, 4;
+    %set/v v011B35F8_0, 0, 4;
+    %set/v v011B33E8_0, 0, 1;
+    %delay 10000, 0;
+    %movi 8, 3, 4;
+    %set/v v011B3498_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v011B35F8_0, 8, 4;
+    %set/v v011B33E8_0, 0, 1;
+    %delay 10000, 0;
+    %movi 8, 5, 4;
+    %set/v v011B3498_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v011B35F8_0, 8, 4;
+    %set/v v011B33E8_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v011B3498_0, 1, 4;
+    %movi 8, 1, 4;
+    %set/v v011B35F8_0, 8, 4;
+    %set/v v011B33E8_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v011B3498_0, 1, 4;
+    %set/v v011B35F8_0, 1, 4;
+    %set/v v011B33E8_0, 1, 1;
+    %delay 10000, 0;
+    %vpi_call 2 58 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 7;
+    "N/A";
+    "<interactive>";
+    "tb_add4.v";
+    "add4.v";
+    "add.v";
+    "sum.v";
+    "carry.v";
